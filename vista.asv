@@ -468,17 +468,36 @@ function btn_k_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
+
+cap1 = handles.cap;
+cap2 = handles.cap_2; 
+res1 = handles.res_1;
+res2 = handles.res_2;
+res3 = handles.res_3;   
+ind1 = handles.ind_1;
+
+k1 = -((res1/(ind1*ind2*cap))/(res1/(ind1*ind2*cap))); %este es uno de los k
+k2 = (((ind1*res1)+(res2*ind1)/ind1*ind2)*(res2/ind1*ind2*cap)-(res2/ind1*ind2*cap))/((((ind2*res1)+(res2+ind1))/ind1*ind2)*(1/ind1)-(res2/ind1*ind2*cap)); %el segundo k
+
+
+kfinal = k1; %creo un vector con los dos k
+kfinal(2) = k2; % y aqui 
+set(handles.kse,'String',kfinal); %seteamos la caja de texto donde muestro las dos k
+
+
 % --- Executes during object creation, after setting all properties.
 function amortiguamientoV_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to amortiguamientoV (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
+
 % --- Executes during object creation, after setting all properties.
 function asentamientoV_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to asentamientoV (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
+
 
 % --- Executes during object creation, after setting all properties.
 function text26_CreateFcn(hObject, eventdata, handles)
